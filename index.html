@@ -6,9 +6,23 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Document</title>
         <link rel="stylesheet" href="css/style.css">
-        <script type="text/javascript" href="scripts/testscript_1.js"></script>
+        <script src="scripts/testscript_1.js"></script>
     </head>
-    <body>
-        
+    <body onload="timer()">
+        Секунд прошло <span id="count">-1</span><br/>
+        <form action="" method="POST" name="test" id="form">
+            <label for="name">Имя:</label>
+            <input type="text" name="name" placeholder="Имя" id="name"/><br/>
+            <label for="email">Email:</label>
+            <input type="text" name="email" placeholder="Email" id="email"/><br/>
+            <label for="password">Пароль:</label>
+            <input type="password" name="password" placeholder="Пароль" id="password"/><br/>
+            <label for="checkpass">Проверка пароля:</label>
+            <input type="password" name="checkpass" placeholder="Повторите пароль" id="checkpass"/><br/>
+            <span>Пол</span>
+            <input type="radio" name="state" id="male" value="Мужской"/><label for="male">Мужской</label>
+            <input type="radio" name="state" id="female" value="Женский"/><label for="female">Женский</label><br/>
+            <input type="button" onclick="valid(document.getElementById('form'))" name="submit" value="Готово"/>
+        </form>
     </body>
 </html>
