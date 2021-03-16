@@ -5,6 +5,15 @@ var server = http.createServer(function(req, res){
     console.log("URL страницы: " + req.url)
     //res.writeHead(200, {'Content-type': 'text/plain; charset=utf-8'});
     //res.writeHead(200, {'Content-type': 'text/html; charset=utf-8'});
+    if(req.url === '/index' || req.url === '/'){
+        //=== - проверяет не только на совпадение значений, но и на тип данных (тут string)
+        res.writeHead(200, {'Content-type': 'text/html; charset=utf-8'});
+        fs.createReadStream(__dirname + '/index.html').pipe(res);
+    }else{
+        res.writeHead(404, {'Content-type': 'text/html; charset=utf-8'});
+        fs.createReadStream(__dirname + '/404.html').pipe(res);
+    }
+    
     res.writeHead(200, {'Content-type': 'application/json; charset=utf-8'});
 
     var obj = {
